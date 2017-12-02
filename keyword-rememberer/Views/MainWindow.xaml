@@ -5,6 +5,8 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:local="clr-namespace:keyword_rememberer"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:flyouts="clr-namespace:keyword_rememberer.Views.Flyouts"
                       Background="{StaticResource WindowBackgroundBrush}"
                       MouseDown="MainWindow_OnMouseDown"
                       ShowTitleBar="False"
@@ -15,4 +17,24 @@
                       mc:Ignorable="d"
                       DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
                       Title="Keyword Remberer" Height="350" Width="910">
+    <controls:MetroWindow.InputBindings>
+        <MouseBinding MouseAction="RightClick" Command="{Binding OpenSettingsCommand}"/>
+    </controls:MetroWindow.InputBindings>
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout AreAnimationsEnabled="True"
+                             IsPinned="False"
+                             AllowFocusElement="False"
+                             IsOpen="{Binding SettingsIsOpen}"
+                             Header="Settings"
+                             Position="Right">
+                <flyouts:Settings />
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 </controls:MetroWindow>

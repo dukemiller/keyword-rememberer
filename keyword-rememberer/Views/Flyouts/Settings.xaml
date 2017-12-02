@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="keyword_rememberer.Views.Flyouts.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:keyword_rememberer"
+             TextElement.FontSize="24"
+             DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+             mc:Ignorable="d">
+    <DockPanel Width="700" Margin="8">
+        <CheckBox DockPanel.Dock="Bottom" FontSize="24" Margin="0,10"
+                  IsChecked="{Binding SettingsRepository.IncludeNumber}">
+            <Label Content="Enable index number" />
+        </CheckBox>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Label Content="Delay by (seconds): " />
+            <TextBox VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="28"
+                     Text="{Binding SettingsRepository.SecondsDelay, UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <Label Content="Words" DockPanel.Dock="Top" />
+        <TextBox Margin="0,10" VerticalContentAlignment="Center" TextWrapping="Wrap" FontSize="24"
+                 Text="{Binding Words, UpdateSourceTrigger=PropertyChanged}" />
+
+    </DockPanel>
+</UserControl>
