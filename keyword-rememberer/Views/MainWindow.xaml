@@ -6,11 +6,13 @@
                       xmlns:local="clr-namespace:keyword_rememberer"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       Background="{StaticResource WindowBackgroundBrush}"
+                      MouseDown="MainWindow_OnMouseDown"
                       ShowTitleBar="False"
                       BorderThickness="0"
                       GlowBrush="Black"
                       ResizeMode="NoResize"
                       TextElement.FontSize="24"
                       mc:Ignorable="d"
+                      DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
                       Title="Keyword Remberer" Height="350" Width="910">
 </controls:MetroWindow>

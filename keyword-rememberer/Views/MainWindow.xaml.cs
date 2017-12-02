@@ -11,5 +11,11 @@ namespace keyword_rememberer.Views
         {
             InitializeComponent();
         }
+
+        private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
+        }
     }
 }
