@@ -89,6 +89,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Converters.cs" />
+    <Compile Include="Repositories\Interface\ISettingsRepository.cs" />
+    <Compile Include="Repositories\SettingsRepository.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
