@@ -37,4 +37,30 @@
             <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    <controls:MetroWindow.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.35" From="0.0" To="1.0"
+                                             Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="16">
+            <Label VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Foreground="LightBlue" FontSize="220"
+                   DockPanel.Dock="Left"
+                   Visibility="{Binding SettingsRepository.IncludeNumber, Converter={StaticResource BoolVisibilityConverter}}"
+                   Content="{Binding Index, Converter={StaticResource PlusOneConverter}}" Opacity="0.4" />
+            <TextBlock FontSize="98" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextWrapping="WrapWithOverflow"
+                       Text="{Binding Word, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+    </Grid>
 </controls:MetroWindow>

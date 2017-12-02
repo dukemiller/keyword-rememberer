@@ -91,6 +91,7 @@
     <Compile Include="Classes\Converters.cs" />
     <Compile Include="Repositories\Interface\ISettingsRepository.cs" />
     <Compile Include="Repositories\SettingsRepository.cs" />
+    <Compile Include="Enums\State.cs" />
     <Compile Include="Views\Flyouts\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>

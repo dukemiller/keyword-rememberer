@@ -13,6 +13,10 @@ namespace keyword_rememberer.ViewModels
     {
         public static bool Loaded { get; set; }
 
+        private State _state = State.Initial;
+
+        // 
+
         public MainWindowViewModel(ISettingsRepository settingsRepository)
         {
             LoadedCommand = new RelayCommand(() => Loaded = true);
@@ -22,12 +26,18 @@ namespace keyword_rememberer.ViewModels
 
         // 
 
+        public string Word { get; set; }
+
         public string Words { get; set; }
+
+        public int Index { get; set; } = -1;
 
         public bool SettingsIsOpen { get; set; }
 
         public RelayCommand LoadedCommand { get; set; }
 
+        public ObservableCollection<string> WordsList { get; set; }
+        
         public RelayCommand OpenSettingsCommand { get; set; }
 
         public ISettingsRepository SettingsRepository { get; set; }
